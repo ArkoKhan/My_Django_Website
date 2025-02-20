@@ -25,3 +25,10 @@ height: 100%;
 .warning {
     color: red;
 }
+
+
+
+.user_name {
+    color: #0ca93b !important;
+    font-weight: bold;
+}

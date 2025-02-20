@@ -22,17 +22,17 @@
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">{{user.username}}</a>
+                    <a class="nav-link user_name" href="#">{{user.username}}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-link btn btn-danger text-white" href="{% url 'logout' %}">Log Out</a>
                 </li>
                 {%else%}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                <li class="nav-item me-2">
+                    <a class="nav-link btn btn-primary text-white" href="{% url 'login' %}">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+                    <a class="nav-link btn btn-danger text-white" href="{% url 'register' %}">Sign Up</a>
                 </li>
                 {%endif%}
                 
