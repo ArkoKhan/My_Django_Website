@@ -1,0 +1,42 @@
+{% load bootstrap5 %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <!-- Django Bootstrap -->
+    <!-- {% load bootstrap5 %} -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- {% bootstrap_messages %} -->
+    <!-- My CSS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    <title>{% block title %}Hello, world!{% endblock %}</title>
+  </head>
+  <body>
+    <header>
+        {% include 'navigation.html' %}
+    </header>
+    <main>
+        {% block content %}
+    <h1>Hello, world!</h1>
+    {% endblock %}
+    </main>
+        {% include 'footer.html' %}
+   
+
+    
+
+  
+    <!-- My JS -->
+    {% load static %}
+    <script src="{% static 'script.js' %}"></script>
+
+  </body>
+</html>
