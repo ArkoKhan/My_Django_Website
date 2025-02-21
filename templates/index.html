@@ -4,5 +4,13 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+{% load static %}
+<header class="banner-header" style="background-image: url('{% static 'img/banner.jpg' %}');">
+
+    <div class="container text-center">
+        <h1 class="display-4">Welcome to the Home Page!</h1>
+    </div>
+</header>
+
 <h1>Welcome to the Home Page!</h1>
 {% endblock %}
