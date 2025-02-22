@@ -92,7 +92,7 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
+
 def about(request):
     return render(request, 'about.html')
 
