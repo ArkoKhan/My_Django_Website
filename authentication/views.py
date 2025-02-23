@@ -9,6 +9,7 @@ import random
 from django.conf import settings
 from django.core.mail import send_mail
 from open_ai_app.views import open_ai
+from .forms import *
 
 # Create your views here.
 def home(request):
@@ -143,3 +144,27 @@ def new_pass(request, token):
         messages.warning(request, f"Error: {e}")
         return redirect('login')
     return render(request, 'auth/new_pass.html', context)
+
+
+def contact(request):
+    if request.user.is_active:
+        if request.method == "POST":
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                name = request.POST.get('name')
+                message = request.POST.get('message')
+                subject = f"Message from {name}"
+                message = f"name : {name} \nmessage : {message}"
+                from_email = settings.EMAIL_HOST_USER
+                recipent = [settings.EMAIL_HOST_USER]
+                send_mail(subject, message, from_email, recipent)
+                messages.success(request, "Your message was sent successfully.")
+                return redirect('contact')
+
+        else:
+            form = ContactForm()
+    else:
+        messages.warning(request, "Please login to continue.")
+        return redirect('login')
+
+    return render(request, 'contact.html', {'form': form})

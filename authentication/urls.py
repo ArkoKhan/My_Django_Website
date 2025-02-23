@@ -11,4 +11,5 @@ urlpatterns = [
     path('otp/', otp, name='otp'),
     path("password_reset/", password_reset, name="password_reset"),
     path("new_pass/<token>/", new_pass, name="new_pass"),
+    path("contact/", contact, name="contact"),
 ]

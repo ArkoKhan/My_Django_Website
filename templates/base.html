@@ -16,6 +16,9 @@
     <!-- My CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'django_ckeditor_5/dist/styles.css' %}">
+<script type="text/javascript" src="{% static 'django_ckeditor_5/dist/bundle.js' %}"></script>
 
     <title>{% block title %}Hello, world!{% endblock %}</title>
   </head>

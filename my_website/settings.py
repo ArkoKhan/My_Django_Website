@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from pickle import FRAME
+import os
 
 from password import MY_DJANGO_SETTINGS_SECRET_KEY, MY_EMAIL_HOST_USER, MY_EMAIL_HOST_PASSWORD
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap5',
+    'django_ckeditor_5',
     'authentication',
     'open_ai_app',
 ]
@@ -124,8 +126,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 STATICFILES_DIRS = [BASE_DIR / 'static', ]
-MEDIA_ROOT = BASE_DIR / 'media'
-
+# MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -138,3 +140,36 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = MY_EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = MY_EMAIL_HOST_PASSWORD
+
+
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': {
+            'items': [
+                'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'imageUpload',
+            ],
+        },
+        'image': {
+            'toolbar': [
+                'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side',
+            ],
+            'styles': [
+                'full', 'side', 'alignLeft', 'alignRight', 'alignCenter',
+            ],
+        },
+        'table': {
+            'contentToolbar': [
+                'tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties',
+            ],
+        },
+        'heading': {
+            'options': [
+                {'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph'},
+                {'model': 'heading1', 'title': 'Heading 1', 'class': 'ck-heading_heading1'},
+                {'model': 'heading2', 'title': 'Heading 2', 'class': 'ck-heading_heading2'},
+                {'model': 'heading3', 'title': 'Heading 3', 'class': 'ck-heading_heading3'},
+            ],
+        },
+    },
+}
