@@ -16,6 +16,7 @@
     <!-- My CSS -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'django_ckeditor_5/dist/styles.css' %}">
 <script type="text/javascript" src="{% static 'django_ckeditor_5/dist/bundle.js' %}"></script>
@@ -25,6 +26,8 @@
   <body>
     <header>
         {% include 'navigation.html' %}
+        {% block banner %} 
+        {% endblock %}
     </header>
     <main>
         {% block content %}

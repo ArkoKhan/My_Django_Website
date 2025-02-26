@@ -3,25 +3,25 @@
     <div class="container p-4">
         <div class="row">
             <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase">MyWebsite</h5>
+                <h5 class="text-uppercase">Hasin</h5>
                 <p>
-                    Welcome to MyWebsite, your go-to destination for insightful articles, latest updates, and engaging content on various topics. Whether you're here to explore new ideas or stay updated with recent trends, we have something for everyone. Join us on our journey to discover, learn, and grow.
+                    I'm Hasin Sadab Khan, a skilled backend web developer with advanced proficiency in Python and strong expertise in Flask. Proficient in object-oriented programming (OOP) in Python, API development, and front-end technologies including HTML, CSS, Bootstrap, and JavaScript. Skilled in database management with SQLite and PGAdmin4. Adept at using version control systems like Git & GitHub. Known for building scalable, efficient, and user-friendly applications. Demonstrates strong teamwork capabilities, collaborating effectively with cross-functional teams to deliver high-quality solutions. Dedicated to continuous learning and staying current with emerging technologies to drive innovation and excellence.
                 </p>
             </div>
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase">Links</h5>
                 <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="#" class="text-white">Home</a>
+                        <a href="{% url 'home' %}" class="text-white">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="text-white">Posts</a>
+                        <a href="{% url 'open_ai' %}" class="text-white">GPT</a>
                     </li>
                     <li>
-                        <a href="#" class="text-white">About</a>
+                        <a href="{% url 'about' %}" class="text-white">About</a>
                     </li>
                     <li>
-                        <a href="#" class="text-white">Contact</a>
+                        <a href="{% url 'contact' %}" class="text-white">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
                         <a href="{% url 'register' %}" class="text-white">Sign Up</a>
                     </li>
                     <li>
-                        <a href="/admin" class="text-white">Admin</a>
+                        <a href="/admin" target="_blank" class="text-white">Admin</a>
                     </li>
                 </ul>
             </div>
