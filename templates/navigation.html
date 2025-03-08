@@ -18,6 +18,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create_resume' %}">Create Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'resume' user.username %}">Resume</a>
+                </li>
+                {%endif%}
             </ul>
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}

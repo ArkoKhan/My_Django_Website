@@ -107,7 +107,7 @@ def password_reset(request):
             pass_recover = PasswordReset(user=user, token_pass=token)
             pass_recover.save()
             subject = "Password Reset Link"
-            message = f"Your user name : {user.username} || Ckick on the link to reset your password -- http://127.0.0.1:8000/new_pass/{token}/"
+            message = f"Your user name : {user.username} || Click on the link to reset your password -- http://127.0.0.1:8000/new_pass/{token}/"
             from_email = settings.EMAIL_HOST_USER
             recipent = [email]
             send_mail(subject, message, from_email, recipent)

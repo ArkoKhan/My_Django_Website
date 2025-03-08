@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('open_ai_app/', include('open_ai_app.urls')),
-path('ckeditor5/', include('django_ckeditor_5.urls')),
+    path('ckeditor5/', include('django_ckeditor_5.urls')),
+    path('resume_builder/', include('resume_builder.urls')),
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

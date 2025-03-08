@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .resume_head{
+            margin: 20px auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .resume_head>div{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            
+        }
+        .resume_head_01{
+            width: 200px;
+            height: 900px;
+            padding: 3px;
+            background-color: #7aade7;
+        }
+        .resume_head_02{
+            width: 500px;
+            height: auto;
+        }
+
+        h2 {
+            color: rgb(8, 8, 8);
+            padding: 5px;
+        }
+        
+        .resume_role{
+            font-size: 20px;
+            font-weight: normal;
+        }
+        .Personal_info{
+            margin: 20px auto;
+            font-size: 10px;
+            padding: 0px 5px;
+        }
+        img {
+            display: inline-block;
+            margin: 10px auto 2px auto;
+            border-radius: 500px;
+        }
+        h1 {
+            font-size: 30px;
+            line-height: 32px;
+        }
+        h2 {
+            font-size: 22px;
+            line-height: 22px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        ul li {
+            list-style: none;
+            line-height: 22px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="resume">
+
+        <div class="resume_head">
+            <table>
+                <tr>
+                    <td style="width: 200px; background-color: #7aade7; padding-left: 5px;">
+                        <!-- Image -->
+                        {% if resume and resume.image %}
+                        <img src="{{ resume.image.url }}" width="180" height="180">
+                        {% endif %}
+                        <!-- Contact Info -->
+                        <p><strong>Phone:</strong> {{ resume.phone }}</p>
+                        <p><strong>Email:</strong> {{ user.email }}</p>
+                        <p><strong>Address:</strong> {{ resume.address }}</p>
+                    </td>
+                    <td style="width: 500px; padding-left: 10px;">
+                        <!-- Name and Summary -->
+                        <h1>{{ resume.name }} <br> <span>{{ resume.occupation }}</span></h1>
+                        <p><strong>Summary:</strong> {{ resume.summary }}</p>
+                    </td>
+                </tr>
+            </table>
+            
+
+
+                <div>
+                    <h2 class="text-center bg-dark text-white">Education</h2>
+                    <ul>
+                        {% for e in education %}
+                        <li>
+                           <strong>Degree:</strong> {{ e.degree }} | <strong>Institute:</strong> {{ e.institute }} | <strong>Duration:</strong> ({{ e.start_year }} - {{ e.end_year }})
+                        </li>
+                        {% endfor %}
+                    </ul>
+            
+                </div>
+            
+                <div>
+                    <h2>Work Experience</h2>
+                    <ul>
+                        {% for w in experience %}
+                        <li>
+                            <strong>Role:</strong>{{ w.title }} | <strong>Company:</strong> {{ w.company }} | <strong>Duration:</strong> ({{ w.start_year }} - {{ w.end_year }})
+                        </li>
+                        {% endfor %}
+                    </ul>
+            
+                </div>
+            
+                <div>
+                    <h2>Skills</h2>
+                    <ul>
+                        {% for s in skills %}
+                        <li>
+                            <strong>{{ s.skill }}</strong> -- {{ s.level }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
+            
+            
+        </div>
+    
+      
+    
+       
+        
+</body>
+</html>
