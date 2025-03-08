@@ -79,7 +79,7 @@
                     <td style="width: 200px; background-color: #7aade7; padding-left: 5px;">
                         <!-- Image -->
                         {% if resume and resume.image %}
-                        <img src="{{ resume.image.url }}" width="180" height="180">
+                        <img src="http://127.0.0.1:8000{{ resume.image.url }}" width="180" height="180">
                         {% endif %}
                         <!-- Contact Info -->
                         <p><strong>Phone:</strong> {{ resume.phone }}</p>
