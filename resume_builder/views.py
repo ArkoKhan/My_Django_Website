@@ -128,48 +128,48 @@ def delete_resume(request):
 
 def add_education(request):
     if request.method == "POST":
-        education_form = ResumeEducationForm(request.POST)
-        if education_form.is_valid():
-            education = education_form.save(commit=False)
+        form = ResumeEducationForm(request.POST)
+        if form.is_valid():
+            education = form.save(commit=False)
             education.resume = ResumeHead.objects.get(user=request.user)
             education.save()
             return redirect('resume', username=request.user.username)
     else:
-        education_form = ResumeEducationForm()
+        form = ResumeEducationForm()
     context = {
-        "education_form": education_form
+        "form": form
     }
-    return render(request, 'resume/education.html', context=context)
+    return render(request, 'resume/add.html', context=context)
 
 def add_experience(request):
     if request.method == "POST":
-        experience_form = ResumeExperienceForm(request.POST)
-        if experience_form.is_valid():
-            experience = experience_form.save(commit=False)
+        form = ResumeExperienceForm(request.POST)
+        if form.is_valid():
+            experience = form.save(commit=False)
             experience.resume = ResumeHead.objects.get(user=request.user)
             experience.save()
             return redirect('resume',  username=request.user.username)
     else:
-        experience_form = ResumeExperienceForm()
+        form = ResumeExperienceForm()
     context = {
-        "experience_form": experience_form
+        "form": form
     }
-    return render(request, 'resume/experience.html', context=context)
+    return render(request, 'resume/add.html', context=context)
 
 def add_skill(request):
     if request.method == "POST":
-        skill_form = ResumeSkillForm(request.POST)
-        if skill_form.is_valid():
-            skill = skill_form.save(commit=False)
+        form = ResumeSkillForm(request.POST)
+        if form.is_valid():
+            skill = form.save(commit=False)
             skill.resume = ResumeHead.objects.get(user=request.user)
             skill.save()
             return redirect('resume', username=request.user.username)
     else:
-        skill_form = ResumeSkillForm()
+        form = ResumeSkillForm()
     context = {
-        "skill_form": skill_form
+        "form": form
     }
-    return render(request, 'resume/skill.html', context=context)
+    return render(request, 'resume/add.html', context=context)
 
 def delete_education(request, pk):
     education = ResumeEducation.objects.get(pk=pk)
