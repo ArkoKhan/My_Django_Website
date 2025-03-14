@@ -121,6 +121,10 @@ def update_resume(request):
 
 def delete_resume(request):
     cv = ResumeHead.objects.get(user=request.user)
+    if cv.image:
+        img_path = os.path.join(settings.MEDIA_ROOT, str(cv.image))
+        if os.path.exists(img_path):
+            os.remove(img_path)
     cv.delete()
     messages.success(request,"Resume deleted successfully")
     return redirect('create_resume')
