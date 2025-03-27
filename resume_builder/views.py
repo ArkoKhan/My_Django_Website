@@ -189,3 +189,21 @@ def delete_skill(request, pk):
     skill = ResumeSkill.objects.get(pk=pk)
     skill.delete()
     return redirect('resume', username=request.user.username)
+
+from .geocode import GeoCode
+geocode = GeoCode()
+def location(request):
+    context = {}
+    if request.method == "POST":
+        form = LocationForm(request.POST)
+        context["form"] = form
+        if form.is_valid():
+            city = request.POST.get("city")
+            res_dict = geocode.forward(city)
+            context["city"] = res_dict["location"]
+            context["lat"] = res_dict["lat"]
+            context["lon"] = res_dict["lon"]
+    else:
+        form = LocationForm()
+        context["form"] = form
+    return render(request,"resume/location.html", context=context)

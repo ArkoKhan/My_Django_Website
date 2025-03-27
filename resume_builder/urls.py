@@ -14,4 +14,5 @@ urlpatterns = [
     path("delete_skill/<int:pk>/", delete_skill, name="delete_skill"),
     path("download_resume/<str:username>/", download_resume, name="download_resume"),
     path("generate_pdf/<str:username>/", GeneratePDF.as_view(), name="generate_pdf"),
+    path("location/", location, name="location"),
 ]
