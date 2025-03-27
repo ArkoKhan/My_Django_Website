@@ -207,3 +207,22 @@ def location(request):
         form = LocationForm()
         context["form"] = form
     return render(request,"resume/location.html", context=context)
+
+def location_reverse(request):
+    context = {}
+    if request.method == "POST":
+        form = LocationReverseForm(request.POST)
+        context["form"] = form
+        if form.is_valid():
+            lat = request.POST.get("lat")
+            lon = request.POST.get("lon")
+            res_location = geocode.reverse(lat, lon)
+            try:
+                context["location"] = res_location
+            except Exception as e:
+                context["location"] = "Invalid coordinates"
+                print(e)
+    else:
+        form = LocationReverseForm()
+        context["form"] = form
+    return render(request,"resume/location_reverse.html", context=context)

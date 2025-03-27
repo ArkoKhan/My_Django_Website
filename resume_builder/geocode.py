@@ -31,9 +31,11 @@ class GeoCode:
             "api_key": GEOCODE_API_KEY
         }
         response = requests.get(self.endpoint_rev, params=params)
-        return response.json()
+        data_res = response.json()
+        res_location = data_res["display_name"]
+        return res_location
 
 
 data = GeoCode()
-print(data.forward("Dhaka"))
+print(data.reverse(23.8103, 90.4125))
 

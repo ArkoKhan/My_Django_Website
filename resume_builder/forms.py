@@ -35,7 +35,17 @@ class ResumeSkillForm(forms.ModelForm):
 
 class LocationForm(forms.Form):
     city = forms.CharField(
-        label="City",
+        label="Location",
         max_length=100,
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+    )
+
+class LocationReverseForm(forms.Form):
+    lat = forms.FloatField(
+        label="Latitude",
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+    )
+    lon = forms.FloatField(
+        label="Longitude",
         widget=forms.TextInput(attrs={"class": "form-control"}),
     )
