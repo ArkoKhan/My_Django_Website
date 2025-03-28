@@ -190,6 +190,9 @@ def delete_skill(request, pk):
     skill.delete()
     return redirect('resume', username=request.user.username)
 
+
+# ================================ Geocode API ==========================
+
 from .geocode import GeoCode
 geocode = GeoCode()
 def location(request):
