@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block title %}API Projects{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">API Projects</h1>
+
+    <div class="card p-4 shadow-sm text-center">
+        <h3 class="card-title">LinkedIn Job Search</h3>
+        <p class="card-text">This API project allows users to search for job listings from LinkedIn by providing relevant job keywords and location.</p>
+        <a href="{% url 'linkedin_job_search' %}" class="btn btn-primary">LinkedIn Job Search</a>
+    </div>
+</div>
+{% endblock %}

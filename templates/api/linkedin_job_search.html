@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+
+{% block title %}API Projects{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">LinkedIn Job Search</h1>
+    <div class="d-flex justify-content-center mb-4">
+        <a href="{% url 'project_home' %}" class="btn btn-outline-primary">Back to Home</a>
+    </div>
+    
+    <div class="card p-3 shadow-sm mx-auto" style="max-width: 400px;">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary mt-3 w-100">Search</button>
+        </form>
+    </div>
+
+    <section class="jobs mt-5">
+        {% for job in jobs %}
+        <div class="card mb-3 shadow-sm bg-light text-dark">
+            <div class="card-body">
+                <h2 class="card-title">{{ job.title }}</h2>
+                <p class="card-text"><strong>Company:</strong> {{ job.company }}</p>
+                <p class="card-text"><strong>Location:</strong> {{ job.location }}</p>
+                <p class="card-text"><strong>Description:</strong> {{ job.description }}</p>
+                <a href="{{ job.url }}" class="btn btn-success" target="_blank">Go to Job</a>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center text-muted">No jobs found.</p>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}

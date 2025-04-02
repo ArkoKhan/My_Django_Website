@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'authentication',
     'open_ai_app',
     'resume_builder',
+    'api_projects',
 ]
 
 MIDDLEWARE = [
